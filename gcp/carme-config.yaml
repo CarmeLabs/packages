@@ -16,6 +16,6 @@ g_max_nodes: 4
 g_gpu:
 root_dir: /Users/jasonkuruzovich/githubdesktop/0_class/packages/gcp
 cwd: /Users/jasonkuruzovich/githubdesktop/0_class/packages/gcp
-package_created_gmt: '2018-06-01 02:28:10'
-commit:
+package_created_gmt: '2018-06-01 02:45:46'
+commit: initial
 #End of Google Cloud Platform Configuration
