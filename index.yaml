@@ -1,0 +1,5 @@
+default: https://github.com/CarmeLabs/packages/blob/master/gcp/packages/current.zip
+gcp: https://github.com/CarmeLabs/packages/blob/master/gcp/packages/current.zip
+azure: https://github.com/CarmeLabs/packages/blob/master/gcp/packages/current.zip
+
+ 
