@@ -1,3 +1,3 @@
-default: https://github.com/CarmeLabs/packages/raw/master/default/packages/default_20180611_000119.zip
+default: https://github.com/CarmeLabs/packages/blob/master/default/packages/default_current.zip
 gcp: https://github.com/CarmeLabs/packages/blob/master/gcp/packages/current.zip
 azure: https://github.com/CarmeLabs/packages/blob/master/azure/packages/current.zip
