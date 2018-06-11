@@ -1,2 +1,2 @@
-## Commands Instructions.
-This is a placeholder for the commands directory.   
+## Data Instructions.
+This is a placeholder for the data directory.
