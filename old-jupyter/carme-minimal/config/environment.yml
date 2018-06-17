@@ -1,0 +1,16 @@
+name: carme
+channels:
+- defaults
+dependencies:
+- scipy
+- wheel
+- pip:
+  - apache-airflow[crypto,celery,postgres,hive,jdbc]==1.9
+  - celery[redis]
+  - Cython
+  - pytz
+  - ndg-httpsclient
+  - pyasn1
+  - pyOpenSSL
+  - twitter
+  - ruamel.yaml
