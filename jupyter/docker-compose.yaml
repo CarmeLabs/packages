@@ -1,0 +1,8 @@
+    jupyter:
+        image: jupyter/base-notebook:latest
+        restart: always
+        volumes:
+            - ./data:/home/jovyan/data
+            - ./code:/home/jovyan/code
+        ports:
+            - "8888:8888"
