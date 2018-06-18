@@ -1,2 +1,3 @@
 #Starter Configuration File
 project_name: 'Default Package'
+dockerhub_url: 'registry.hub.docker.com'
