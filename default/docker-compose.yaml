@@ -4,8 +4,4 @@
 # For more info, see: https://docs.docker.com/v17.09/compose/
 version: '3'
 
-networks:
-  carme-net:
-    external:true
-
 services:
