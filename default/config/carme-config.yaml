@@ -1,3 +1,4 @@
 #Starter Configuration File
 project_name: 'Default Package'
+jupyter_image: 'carme/jupyter'
 dockerhub_url: 'registry.hub.docker.com'

@@ -1,5 +1,5 @@
     jupyter:
-        image: jupyter/base-notebook:latest
+        image: carme/jupyter:latest
         restart: always
         volumes:
             - ./data:/home/jovyan/data
