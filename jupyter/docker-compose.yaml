@@ -1,6 +1,7 @@
     jupyter:
         image: carme/jupyter:latest
         restart: always
+        hostname: localhost
         volumes:
             - ./data:/home/jovyan/data
             - ./code:/home/jovyan/code
