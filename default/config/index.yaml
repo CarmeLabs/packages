@@ -2,3 +2,4 @@ default: https://github.com/CarmeLabs/packages/raw/master/default/packages/defau
 gcp: https://github.com/CarmeLabs/packages/raw/master/gcp/packages/gcp_20180611_143735.zip
 azure: https://github.com/CarmeLabs/packages/raw/master/azure/packages/azure_20180623_114706.zip
 jupyter: https://github.com/CarmeLabs/packages/raw/master/jupyter/packages/jupyter_20180620_004417.zip
+azcopy: https://github.com/CarmeLabs/packages/raw/master/azcopy/packages/azcopy_20180623_133133.zip
