@@ -1,5 +1,6 @@
+azure_image: carme/azure
 cluster_location: azure
-email: you@mail.com    #Email Associated with the account. 
+email: you@mail.com    #Email Associated with the account.
 #Start of Azure Configuration
 a_service_type: acs                 #aks is the next generation only available in westus2. acs is the more widely available service.
 a_resource_group: carme     #Resource groups are used to separate projects.
