@@ -1,0 +1,8 @@
+copy_data: 'azcopy --source {data_path} --destination {bucket}{project}data --dest-key {bucket_key} --recursive --verbose'
+copy_project: 'azcopy --source {project_dir} --destination {bucket}{project}  --dest-key {bucket_key} --recursive --verbose'
+get_data: 'azcopy --source {bucket}{project}data --destination {data_dir} --dest-key {bucket_key} --recursive --verbose'
+get_project: 'azcopy --source {bucket}{project} --destination {project_dir}  --dest-key {bucket_key} --recursive --verbose'
+mount: [ mount1, mount2, mount3 ]
+mount1: 'sudo apt-get install cifs-utils'
+mount2: 'sudo mkdir /mnt/{bucket}'
+mount3: 'sudo mount -t cifs //{bucket}.file.core.windows.net/master /mnt/{bucket} -o vers=3.0,username={bucket},password={bucket_key},dir_mode=0777,file_mode=0777,sec=ntlmssp'

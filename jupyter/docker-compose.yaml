@@ -1,5 +1,5 @@
     jupyter:
-        image: carme/jupyter:latest
+        image: carmelabs/jupyter:latest
         restart: always
         hostname: localhost
         environment:

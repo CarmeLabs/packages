@@ -1,0 +1,6 @@
+project:
+azure_image: carmelabs/azbucket
+project_path:
+data_path:
+bucket:
+bucket_key:

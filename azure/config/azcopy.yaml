@@ -1,6 +1,0 @@
-project:
-azure_image: carme/azure
-project_dir:
-data_dir:
-bucket:
-bucket_key:

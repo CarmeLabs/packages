@@ -1,3 +1,0 @@
-azurecopy_image: carme/azurecopy
-copy_data: 'azcopy --source {data_dir} --destination {bucket}/{project} --dest-key {bucket_key} --recursive --verbose'
-copy_project: 'azcopy --source {project_dir} --destination {bucket}/{project}  --dest-key {bucket_key} --recursive --verbose'

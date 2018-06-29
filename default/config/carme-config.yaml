@@ -1,5 +1,6 @@
 #Starter Configuration File
 project_name: 'Default Package' #Set your package
 package_index: 'https://raw.githubusercontent.com/CarmeLabs/packages/master/default/config/index.yaml' #set to local for config/index.yaml
-jupyter_image: 'carme/jupyter' #Set your image name
 container_url: 'registry.hub.docker.com' #Location for storing/retreiving containerss
+merge_list: ['./.carmeignore','./docker-compose.yaml', 'config/carme-config.yaml']
+host: localhost
