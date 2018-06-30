@@ -1,0 +1,14 @@
+azure_image: carmelabs/azurecli
+email: 'jason@analyticsdojo.com'    #Email Associated with the account.
+#Start of Azure Configuration
+resource_group: carme     #Resource groups are used to separate projects.
+server_name: carme_server
+server_image: UbuntuLTS         #Bionic 18.04 (LTS)Artful 17.10 Xenial 16.04 (LTS)
+server_admin: carme_user
+server_auth: '--generate-ssh-keys'
+server_size: 'Standard_DS2_v2'    #
+storage_account: twitter          #For use with Pachyderm
+container_name: twitter           #For use with Pachyderm
+storage_name: pach2-disk.vhd   #For use with Pachyderm
+storage_size: 1                #For use with Pachyderm Storage account size in GB.
+location: eastus2                 #Selection from `az account list-locations`.
