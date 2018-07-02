@@ -1,0 +1,12 @@
+    jupyter:
+        image: carmelabs/carme-base-gpu:latest
+        restart: always
+        hostname: localhost
+        environment:
+            - GRANT_SUDO=yes
+        volumes:
+            - ./data:/home/jovyan/data
+            - ./code:/home/jovyan/code
+        ports:
+            - "8888:8888"
+        command: start-notebook.sh

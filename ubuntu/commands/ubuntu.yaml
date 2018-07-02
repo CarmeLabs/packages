@@ -1,0 +1,2 @@
+install_docker_ce: 'script: install_docker_ce.sh'
+install_nvidia_docker: 'script: install_nvidia_docker.sh'

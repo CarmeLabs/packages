@@ -1,0 +1,2 @@
+jupyter_image: 'carmelabs/jupyter-cpu' #The default Jupyter package for use with 'carme lab' and 'carme notebook' commands.
+jupyter_port: '8888'
