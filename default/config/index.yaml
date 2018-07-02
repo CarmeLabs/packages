@@ -1,7 +1,10 @@
 #Please note that currently adding a new package to index bases it off of default
-default: https://github.com/CarmeLabs/packages/raw/master/default/packages/default_20180630_171422.zip
-jupyter: https://github.com/CarmeLabs/packages/raw/master/jupyter/packages/jupyter_20180628_214331.zip
-docker: https://github.com/CarmeLabs/packages/raw/master/docker/packages/docker_20180628_214637.zip
-az-bucket: https://github.com/CarmeLabs/packages/raw/master/az-bucket/packages/az-bucket_20180630_190015.zip
-az-server: https://github.com/CarmeLabs/packages/raw/master/az-server/packages/az-server_20180630_190152.zip
-az-all: ['az-bucket','az-server']
+default: https://github.com/CarmeLabs/packages/raw/master/default/packages/default_20180702_140210.zip
+az-bucket: https://github.com/CarmeLabs/packages/raw/master/az-bucket/packages/az-bucket_20180702_135302.zip
+az-server: https://github.com/CarmeLabs/packages/raw/master/az-server/packages/az-server_20180702_135642.zip
+az-cluster: https://github.com/CarmeLabs/packages/raw/master/az-cluster/packages/az-cluster_20180702_135603.zip
+az-all: ['az-bucket', 'az-server', 'az-cluster', ubuntu]
+base-cpu: https://github.com/CarmeLabs/packages/raw/master/base-cpu/packages/base-cpu_20180702_135724.zip
+base-gpu: https://github.com/CarmeLabs/packages/raw/master/base-gpu/packages/base-gpu_20180702_135753.zip
+jupyter-cpu: https://github.com/CarmeLabs/packages/raw/master/jupyter-cpu/packages/jupyter-cpu_20180702_140251.zip
+ubuntu: https://github.com/CarmeLabs/packages/raw/master/ubuntu/packages/ubuntu_20180702_140924.zip
