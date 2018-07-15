@@ -1,0 +1,4 @@
+proxy:
+  secretToken: "secret_token"
+rbac:
+  enabled: false

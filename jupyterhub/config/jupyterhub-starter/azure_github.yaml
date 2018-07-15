@@ -1,0 +1,14 @@
+proxy:
+  secretToken: "secret_token"
+rbac:
+  enabled: false
+auth:
+  type: github
+  github:
+    clientId: "clientId"
+    clientSecret: "clientsecret"
+    callbackUrl: "http://yourhost/hub/oauth_callback"
+    org_whitelist:
+      - "SomeOrgName"
+    scopes:
+    - "read:user"

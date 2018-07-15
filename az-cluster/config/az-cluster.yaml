@@ -1,21 +1,10 @@
-azure_image: carmelabs/azure
-email: 'you@mail.com'    #Email Associated with the account.
-#Start of Azure Configuration
-service_type: acs                 #aks is the next generation only available in westus2. acs is the more widely available service.
-resource_group: carme     #Resource groups are used to separate projects.
-server_name: carme_server
-server_image: UbuntuLTS         #Bionic 18.04 (LTS)Artful 17.10 Xenial 16.04 (LTS)
-server_admin: carme_user
-server_auth: '--generate-ssh-keys'
-cluster_name: carme        #Name your cluster whatever you like.
-location: eastus2                 #Selection from `az account list-locations`.
+subscription: '"Microsoft Azure Sponsorship"'  #Can be name or ID
+resource_group: carmecluster     #Resource groups are used to separate projects.
+cluster_name: carmecluster        #Name your cluster whatever you like.
+location: centralus        #Selection from `az account list-locations`.
 dns_prefix: carme         #Selection from gcloud compute regions list.
-machine_type: Standard_D3_v2        #Type of Server https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs
-num_nodes: 1                      #The default number of nodes (servers)
+machine_type: Standard_D2s_v3        #Type of Server https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs
+kubernetes_version: 1.8.2            #The appropriate Kubernetes Version.
+num_nodes: 3                      #The default number of nodes (servers)
 num_nodes_class: 3
 max_nodes: 4
-storage_account: twitter          #For use with Pachyderm
-container_name: twitter           #For use with Pachyderm
-storage_name: pach2-disk.vhd   #For use with Pachyderm
-storage_size: 1                #For use with Pachyderm Storage account size in GB.
-#End of Azure Configuration

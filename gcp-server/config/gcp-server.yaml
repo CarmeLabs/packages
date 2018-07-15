@@ -1,0 +1,15 @@
+#Start of Google Specific Configuration
+project: carme-ai             #Google project name
+server_name: carme        #Name of your Google Cluster
+region: us-east1                 #Selection from gcloud compute regions list.
+zone: us-east1-b                  #Selection from gcloud compute regions list.
+machine_type: n1-highmem-4       #Type of Server
+boot_disk_size: 250GB
+authorization_file: auth.json     #Service account authorization file.
+service_account_name: carme  #Service account name.
+fixedip_namespace: jupyterhub-carme
+accelorator: nvidia-tesla-k80     #nvidia-tesla-p100 or nvidia-tesla-k80
+image_family: ubuntu-1804-lts
+image_project: image-project
+gpu_count: 1
+ip_range: *

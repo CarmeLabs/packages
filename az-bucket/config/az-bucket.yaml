@@ -1,6 +1,5 @@
-project:
 azure_image: carmelabs/azbucket
-project_path:
+project_path: < insert > 
 data_path:
 bucket:
 bucket_key:

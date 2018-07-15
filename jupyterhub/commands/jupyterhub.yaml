@@ -1,0 +1,22 @@
+#Start of Jupyterhub
+#install_ssl: "helm install --name=letsencrypt --namespace=kube-system stable/kube-lego --set config.LEGO_EMAIL={jup_email} --set config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory"
+show_config: "cat ./config/jupyterhub.yaml"
+init: [init0,init1,init2,init3,init4,init5]
+init0: "mkdir ./config/{jup_namespace}"
+init1: "cp ./config/jupyterhub-starter/{platform}_{security}.yaml ./config/{namespace}/config.yaml"
+init2: "openssl rand -hex 32 > ./config/{namespace}/secret_token.txt"
+init3: "sed -i '' s/secret_token/$(cat ./config/{namespace}/secret_token.txt)/g ./config/{namespace}/config.yaml"
+init4: "helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/"
+init5: "helm repo update"
+install: "helm install jupyterhub/jupyterhub --version={version} --name={releasename} --namespace={namespace} -f ./config/{namespace}/config.yaml"
+upgrade: "helm upgrade {namespace} jupyterhub/jupyterhub --version={version} -f ../apps/jupyterhub/config.yaml"
+describe: "kubectl --namespace={namespace} get pod"
+delete: [delete0, delete1]
+delete0: "helm delete {releasename} --purge"
+delete1: "kubectl delete namespace {namespace}"
+get_ip: "kubectl --namespace={namespace} get svc proxy-public --output=wide"
+delete_namespace: "kubectl delete namespace {jup_namespace}"
+delete_jupyterhub: "helm delete {jup_releasename} --purge"
+clone_repo: "helm repo add jupyterhub {jup_helm_repo} && helm repo update"
+
+#End of Jupyterhub

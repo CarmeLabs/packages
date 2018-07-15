@@ -1,0 +1,22 @@
+#Start of Google Cloud Platform Commands
+create_service_account: "gcloud iam service-accounts create {service_account_name} --display-name {service_account_name}"
+create_key: "gcloud iam service-accounts keys create {cwd}/gcp/{authorization_file} --iam-account {service_account_name}@{project}.iam.gserviceaccount.com"
+get_policy: "gcloud iam service-accounts get-iam-policy {service_account_name}@{project}.iam.gserviceaccount.com --format json > {cwd}gcp/policy.json"
+set_policy: "gcloud iam service-accounts set-iam-policy {service_account_name}@{project}.iam.gserviceaccount.com {cwd}/gcp/policy.json"
+login: "gcloud auth login"
+create_project: "gcloud projects create {project} --set-as-default"
+set_project: "gcloud config set project {project}"
+set_zone: "gcloud config set compute/zone {zone}"
+create_fixedip: "gcloud compute addresses create {fixedip_namespace} --region={region}"
+describe_fixedip: "gcloud compute addresses describe {fixedip_namespace} --region={region}"
+delete_forwarding_rule: "gcloud compute forwarding-rules delete forwarding_rule --quiet"
+delete_fixedip: "gcloud compute addresses delete {fixedip_namespace} --region={region} --quiet"
+create_cpu_server: "gcloud compute instances create {server_name} --machine-type {machine_type} --zone {zone} --boot-disk-size={boot_disk_size} --address={server_name} --accelerator type={accelorator},count={gpu_count}--image-family {image_family} --image-project {image-project} --maintenance-policy TERMINATE"
+create_gpu_server: "gcloud compute instances create {server_name} --machine-type {machine_type} --zone {zone} --boot-disk-size={boot_disk_size} --address={server_name} --image-family {image_family} --image-project {image-project} --maintenance-policy TERMINATE"
+create_firewall_rules: "gcloud beta compute firewall-rules create {server_name}
+    --direction "ingress" --action allow --target-tags "jupyter"
+    [--target-service-accounts=[IAM Service Account] \
+    --source-ranges {ip_range} \
+    [--source-tags [TAG][,TAG,...]] \
+    [--rules ([PROTOCOL][:PORT[-PORT]],[PROTOCOL[:PORT[-PORT]],...]] | all ) \
+    [--disabled | --no-disabled] (requires gcloud beta)"
