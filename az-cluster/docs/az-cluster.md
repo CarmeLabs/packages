@@ -139,13 +139,7 @@ The command will created the service account, initiate it, and print the helm ve
 
 
 ```python
-
-!kubectl --namespace kube-system create serviceaccount tiller
-```
-
-
-```python
-!helm init --service-account tiller
+!carme cmd az-cluster install_helm $dryrun $yes
 ```
 
 A critical factor for Helm is that you have the same version running locally and via your machine. If you run helm version and you the same versions on the client and sever, you should be fine. 
@@ -153,6 +147,14 @@ A critical factor for Helm is that you have the same version running locally and
 *Client: &version.Version{SemVer:"v2.6.2", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}*
 
 *Server: &version.Version{SemVer:"v2.6.2", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}*
+
+To install an alternate version, use this: 
+
+*curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh*
+
+*chmod 700 get_helm.sh*
+
+*RUN get_helm.sh --version v2.6.2*
 
 
 ```python
@@ -181,27 +183,6 @@ Stop the cluster, effectively setting the size to 0.
 ```python
 !carme cmd az-cluster stop $dryrun $yes
 ```
-
-    carme: [INFO] All cmd commands issued from project root directory to ensure relative path consistency.
-    Traceback (most recent call last):
-      File "/anaconda3/envs/carme/bin/carme", line 11, in <module>
-        load_entry_point('carme', 'console_scripts', 'carme')()
-      File "/anaconda3/envs/carme/lib/python3.6/site-packages/click/core.py", line 722, in __call__
-        return self.main(*args, **kwargs)
-      File "/anaconda3/envs/carme/lib/python3.6/site-packages/click/core.py", line 697, in main
-        rv = self.invoke(ctx)
-      File "/anaconda3/envs/carme/lib/python3.6/site-packages/click/core.py", line 1066, in invoke
-        return _process_result(sub_ctx.command.invoke(sub_ctx))
-      File "/anaconda3/envs/carme/lib/python3.6/site-packages/click/core.py", line 895, in invoke
-        return ctx.invoke(self.callback, **ctx.params)
-      File "/anaconda3/envs/carme/lib/python3.6/site-packages/click/core.py", line 535, in invoke
-        return callback(*args, **kwargs)
-      File "/Users/jasonkuruzovich/githubdesktop/0_class/carme/src/cli/commands/cmd.py", line 48, in cmd
-        elif isinstance(commands[command], ruamel.yaml.comments.CommentedSeq):
-      File "/anaconda3/envs/carme/lib/python3.6/site-packages/ruamel/yaml/comments.py", line 702, in __getitem__
-        return ordereddict.__getitem__(self, key)
-    KeyError: 'stop'
-
 
 Set the cluster to the normal size. This is a "non class time" size. 
 

@@ -154,14 +154,7 @@ get_ipython().system('kubectl get node')
 # In[ ]:
 
 
-
-get_ipython().system('kubectl --namespace kube-system create serviceaccount tiller')
-
-
-# In[ ]:
-
-
-get_ipython().system('helm init --service-account tiller')
+get_ipython().system('carme cmd az-cluster install_helm $dryrun $yes')
 
 
 # A critical factor for Helm is that you have the same version running locally and via your machine. If you run helm version and you the same versions on the client and sever, you should be fine. 
@@ -169,6 +162,14 @@ get_ipython().system('helm init --service-account tiller')
 # *Client: &version.Version{SemVer:"v2.6.2", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}*
 # 
 # *Server: &version.Version{SemVer:"v2.6.2", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}*
+# 
+# To install an alternate version, use this: 
+# 
+# *curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh*
+# 
+# *chmod 700 get_helm.sh*
+# 
+# *RUN get_helm.sh --version v2.6.2*
 
 # In[ ]:
 
@@ -196,7 +197,7 @@ get_ipython().system('carme cmd az-cluster class_size $dryrun $yes')
 
 # Stop the cluster, effectively setting the size to 0.
 
-# In[10]:
+# In[ ]:
 
 
 get_ipython().system('carme cmd az-cluster stop $dryrun $yes')
