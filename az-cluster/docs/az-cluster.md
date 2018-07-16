@@ -58,9 +58,6 @@ Set the appropriate subscription here.
 ### List Available Subscription (Optional)
 You can update the current subscription usine either the ID or the name.  
 
-### Print Available Commands
-Optionally you can print the configuration and common commands for your desired cluster. You can use this as a reference and copy and paste into the terminal.
-
 
 ```python
 #This will list all subscrptions. 
@@ -119,61 +116,50 @@ We need to add the credentials for Kubectl to work. You need a bit of time for y
 
 
 ```python
-#gcloud container clusters get-credentials carme
 !carme cmd az-cluster get_credentials $dryrun $yes
 ```
 
+### Check your Cluster
+`kubectl` is the default kubernetes command you can use to check out lots of things on your cluster. Go ahead and trying the `cluster info` and `get node` commands below. 
+
 
 ```python
-#Check to see if we have Kubectl working. 
 !kubectl cluster-info
-
 ```
 
 
 ```python
-#Check notes with Kubectl
 !kubectl get node
-
 ```
 
 ### Helm Installation.  
 We are going to be utilizing Helm for  installations of a variety of analytics tools.  This command will install Tiller on your cluster.  As they say, "Happy Helming!" 
 
-A critical factor for Helm is that you have the same version running locally and via your machine.  If you run helm version and you have the right version, then you should be fine.
-
-```
-Client: &version.Version{SemVer:"v2.6.2", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}
-Server: &version.Version{SemVer:"v2.6.2", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}
-```
-
-To install the appropriate version: 
-
-```
-curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
-chmod 700 get_helm.sh
-RUN get_helm.sh --version v2.6.2
-
-```
-
+The command will created the service account, initiate it, and print the helm version. 
 
 
 ```python
-#Setup Serviceaccount
+
 !kubectl --namespace kube-system create serviceaccount tiller
 ```
 
 
 ```python
-#Initialize Helm
 !helm init --service-account tiller
 ```
 
+A critical factor for Helm is that you have the same version running locally and via your machine. If you run helm version and you the same versions on the client and sever, you should be fine. 
+
+*Client: &version.Version{SemVer:"v2.6.2", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}*
+
+*Server: &version.Version{SemVer:"v2.6.2", GitCommit:"be3ae4ea91b2960be98c07e8f73754e67e87963c", GitTreeState:"clean"}*
+
 
 ```python
-#This may need to be run more than once if you get a "cannot connect to server."
 !helm version
 ```
+
+Secure Helm
 
 
 ```python
@@ -182,19 +168,42 @@ RUN get_helm.sh --version v2.6.2
 ```
 
 ### Resize a Cluster
-
+The commands below can be used to resize the cluster.  For example, you man need to scale up for classroom exercises. This is held in the config file as the number of servers for class_size. 
 
 
 ```python
-#Scale the cluster 
 !carme cmd az-cluster class_size $dryrun $yes
 ```
 
+Stop the cluster, effectively setting the size to 0.
+
 
 ```python
-#Stop the cluster, effectively setting the size to 0.
 !carme cmd az-cluster stop $dryrun $yes
 ```
+
+    carme: [INFO] All cmd commands issued from project root directory to ensure relative path consistency.
+    Traceback (most recent call last):
+      File "/anaconda3/envs/carme/bin/carme", line 11, in <module>
+        load_entry_point('carme', 'console_scripts', 'carme')()
+      File "/anaconda3/envs/carme/lib/python3.6/site-packages/click/core.py", line 722, in __call__
+        return self.main(*args, **kwargs)
+      File "/anaconda3/envs/carme/lib/python3.6/site-packages/click/core.py", line 697, in main
+        rv = self.invoke(ctx)
+      File "/anaconda3/envs/carme/lib/python3.6/site-packages/click/core.py", line 1066, in invoke
+        return _process_result(sub_ctx.command.invoke(sub_ctx))
+      File "/anaconda3/envs/carme/lib/python3.6/site-packages/click/core.py", line 895, in invoke
+        return ctx.invoke(self.callback, **ctx.params)
+      File "/anaconda3/envs/carme/lib/python3.6/site-packages/click/core.py", line 535, in invoke
+        return callback(*args, **kwargs)
+      File "/Users/jasonkuruzovich/githubdesktop/0_class/carme/src/cli/commands/cmd.py", line 48, in cmd
+        elif isinstance(commands[command], ruamel.yaml.comments.CommentedSeq):
+      File "/anaconda3/envs/carme/lib/python3.6/site-packages/ruamel/yaml/comments.py", line 702, in __getitem__
+        return ordereddict.__getitem__(self, key)
+    KeyError: 'stop'
+
+
+Set the cluster to the normal size. This is a "non class time" size. 
 
 
 ```python

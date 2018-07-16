@@ -2,6 +2,11 @@ show_config: "cat ./config/az-cluster.yaml"
 login: "az login"
 set_subscription: az account set --subscription {subscription}
 list_subscriptions: az account list --refresh --output table
+create_all: ['create_group','register','create_key','create']
+install_helm: ['helm1','helm2']
+helm1: "kubectl --namespace kube-system create serviceaccount tiller"
+helm2: "helm init --service-account tiller"
+#helm3: "kubectl --namespace=kube-system patch deployment tiller-deploy --type=json --patch='[{\"op\": \"add\", \"path\": \"/spec/template/spec/containers/0/command\", \"value\": [\"/tiller\", \"--listen=localhost:44134\"]}]'"
 create_group: "az group create --name {resource_group} --location {location} --output table"
 delete_group: "az group delete --name {resource_group} --yes"
 register: [register0, register1, register2,register3]
