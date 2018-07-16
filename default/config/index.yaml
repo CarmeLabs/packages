@@ -4,7 +4,7 @@ az-bucket: https://github.com/CarmeLabs/packages/raw/master/az-bucket/packages/a
 az-server: https://github.com/CarmeLabs/packages/raw/master/az-server/packages/az-server_20180702_135642.zip
 az-cluster: https://github.com/CarmeLabs/packages/raw/master/az-cluster/packages/az-cluster_20180716_102832.zip
 az-all: ['az-bucket', 'az-server', 'az-cluster', 'ubuntu']
-az-z2jh: ['az-cluster', 'jupyterhub', 'jupyter']
+az-z2jh: ['az-cluster', 'jupyterhub', 'jupyter-cpu']
 base-cpu: https://github.com/CarmeLabs/packages/raw/master/base-cpu/packages/base-cpu_20180702_135724.zip
 base-gpu: https://github.com/CarmeLabs/packages/raw/master/base-gpu/packages/base-gpu_20180702_135753.zip
 jupyter-cpu: https://github.com/CarmeLabs/packages/raw/master/jupyter-cpu/packages/jupyter-cpu_20180702_140251.zip
