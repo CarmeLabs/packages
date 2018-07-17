@@ -2,14 +2,14 @@ show_config: "cat ./config/az-cluster.yaml"
 login: "az login"
 set_subscription: az account set --subscription {subscription}
 list_subscriptions: az account list --refresh --output table
-create_all: ['create_group','register','create_key','create']
-install_helm: ['helm1','helm2']
-helm1: "kubectl --namespace kube-system create serviceaccount tiller"
-helm2: "helm init --service-account tiller"
-#helm3: "kubectl --namespace=kube-system patch deployment tiller-deploy --type=json --patch='[{\"op\": \"add\", \"path\": \"/spec/template/spec/containers/0/command\", \"value\": [\"/tiller\", \"--listen=localhost:44134\"]}]'"
+create_all: ['create_group', 'register0', 'register1', 'register2', 'register3' ,'create_key0','create_key1','create']
+install_helm: ['get_credentials', 'helm0', 'helm1', 'helm2']
+helm0: "kubectl --namespace kube-system create serviceaccount tiller"
+helm1: "helm init --service-account tiller"
+helm2: "script"
 create_group: "az group create --name {resource_group} --location {location} --output table"
 delete_group: "az group delete --name {resource_group} --yes"
-register: [register0, register1, register2,register3]
+register: [register0, register1, register2, register3]
 register0: "az provider register --name Microsoft.Network --wait"
 register1: "az provider register --name Microsoft.Compute --wait"
 register2: "az provider register --name Microsoft.Storage --wait"
@@ -25,7 +25,6 @@ install_kubectl: "az aks install-cli"
 get_credentials: "az aks get-credentials --name {cluster_name} --resource-group {resource_group}  --output table"
 normal_size: "az aks scale --node-count {num_nodes} --name {cluster_name} --resource-group {resource_group}"
 class_size: "az aks scale --node-count {num_nodes_class} --name {cluster_name} --resource-group {resource_group}"
-install_helm: "helm init --client-only"
 # Can't size to 0 {stop_cluster: "az acs scale --resource-group={resource_group} --name={cluster_name} --new-agent-count 0"
 create_storage:  "az storage account create --resource-group={resource_group} --location={location} --sku=Standard_LRS --name={storage_account} --kind=Storage"
 get_storage_key: "az storage account keys list --account-name={storage_account} --resource-group={resource_group} --output=json | jq .[0].value -r"
