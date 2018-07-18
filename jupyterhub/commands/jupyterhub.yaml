@@ -1,7 +1,7 @@
 #Start of Jupyterhub
 #install_ssl: "helm install --name=letsencrypt --namespace=kube-system stable/kube-lego --set config.LEGO_EMAIL={jup_email} --set config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory"
 show_config: "cat ./config/jupyterhub.yaml"
-install_all: [init0, init1, init2, init3, init4, init5, install]
+install_all: [init0, init1, init2, init3, init4, init5, install, sleep_5min, get_ip]
 init: [init0, init1, init2, init3, init4, init5]
 init_mac: [init0, init1, init2, init3_mac, init4, init5]
 init0: "mkdir ./config/{namespace}"
@@ -17,6 +17,7 @@ describe: "kubectl --namespace={namespace} get pod"
 delete: [delete0, delete1]
 delete0: "helm delete {releasename} --purge"
 delete1: "kubectl delete namespace {namespace}"
+sleep_5min: "sleep 300"
 get_ip: "kubectl --namespace={namespace} get svc proxy-public --output=wide"
 delete_namespace: "kubectl delete namespace {jup_namespace}"
 delete_jupyterhub: "helm delete {jup_releasename} --purge"

@@ -1,7 +1,5 @@
 proxy:
   secretToken: "secret_token"
-rbac:
-  enabled: false
 auth:
   type: github
   github:
