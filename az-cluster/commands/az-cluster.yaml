@@ -7,7 +7,7 @@ install_helm: ['get_credentials', 'helm0', 'helm1', 'helm2']
 helm0: "kubectl --namespace kube-system create serviceaccount tiller"
 helm1: "helm init --service-account tiller"
 helm2: "script"
-create_group: "az group create --name {resource_group} --location {location} --output table"
+create_group: "az group create --name {resource_group} --location {location}"
 delete_group: "az group delete --name {resource_group} --yes"
 register: [register0, register1, register2, register3]
 register0: "az provider register --name Microsoft.Network --wait"
@@ -18,7 +18,7 @@ create_key: [create_key0, create_key1]
 create_key0: "mkdir ./config/ssh/{cluster_name}"
 create_key1: "cd ./config/ssh/{cluster_name} && ssh-keygen -f ssh-key-{cluster_name} -N ''"
 list-locations: "az account list-locations"
-create: "az aks create  --resource-group {resource_group} --name {cluster_name}  --generate-ssh-keys  --node-count {num_nodes} --node-vm-size {machine_type} --kubernetes-version {kubernetes_version} --output table"
+create: "az aks create  --resource-group {resource_group} --name {cluster_name} --node-count {num_nodes} --node-vm-size {machine_type} --generate-ssh-keys"
 describe: "az aks list --resource-group {resource_group}"
 delete: "az aks delete --name {cluster_name} --resource-group {resource_group} --yes"
 install_kubectl: "az aks install-cli"
