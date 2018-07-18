@@ -1,7 +1,7 @@
 subscription: '"Microsoft Azure Sponsorship"'  #Can be name or ID
 resource_group: carmecluster     #Resource groups are used to separate projects.
 cluster_name: carmecluster        #Name your cluster whatever you like.
-location: centralus        #Selection from `az account list-locations`.
+location: eastus        #Selection from `az account list-locations`.
 dns_prefix: carme         #Selection from gcloud compute regions list.
 machine_type: Standard_D2s_v3        #Type of Server https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-sizes-specs
 kubernetes_version: 1.8.2            #The appropriate Kubernetes Version.

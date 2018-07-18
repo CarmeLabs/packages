@@ -2,7 +2,7 @@ show_config: "cat ./config/az-cluster.yaml"
 login: "az login"
 set_subscription: az account set --subscription {subscription}
 list_subscriptions: az account list --refresh --output table
-create_all: ['create_group', 'register0', 'register1', 'register2', 'register3' ,'create_key0','create_key1','create']
+create_all: ['create_group', 'register0', 'register1', 'register2', 'register3','create','get_credentials', 'helm0', 'helm1', 'helm2']
 install_helm: ['get_credentials', 'helm0', 'helm1', 'helm2']
 helm0: "kubectl --namespace kube-system create serviceaccount tiller"
 helm1: "helm init --service-account tiller"
@@ -18,7 +18,7 @@ create_key: [create_key0, create_key1]
 create_key0: "mkdir ./config/ssh/{cluster_name}"
 create_key1: "cd ./config/ssh/{cluster_name} && ssh-keygen -f ssh-key-{cluster_name} -N ''"
 list-locations: "az account list-locations"
-create: "cd ./config/ssh/{cluster_name} && az aks create --name {cluster_name} --resource-group {resource_group}  --ssh-key-value ssh-key-{cluster_name}.pub  --node-count {num_nodes} --node-vm-size {machine_type} --kubernetes-version {kubernetes_version} --output table"
+create: "az aks create  --resource-group {resource_group} --name {cluster_name}  --generate-ssh-keys  --node-count {num_nodes} --node-vm-size {machine_type} --kubernetes-version {kubernetes_version} --output table"
 describe: "az aks list --resource-group {resource_group}"
 delete: "az aks delete --name {cluster_name} --resource-group {resource_group} --yes"
 install_kubectl: "az aks install-cli"
