@@ -163,12 +163,6 @@ To install an alternate version, use this:
 
 Secure Helm
 
-
-```python
-# Secure Helm
-!kubectl --namespace=kube-system patch deployment tiller-deploy --type=json --patch='[{"op": "add", "path": "/spec/template/spec/containers/0/command", "value": ["/tiller", "--listen=localhost:44134"]}]'
-```
-
 ### Resize a Cluster
 The commands below can be used to resize the cluster.  For example, you man need to scale up for classroom exercises. This is held in the config file as the number of servers for class_size. 
 

@@ -1,13 +1,13 @@
 #Start of Google Cluster Configuration
-project: techfunsp2018             #Google project name
-cluster_name: carmecli        #Name of your Google Cluster
-region: us-east1                 #Selection from gcloud compute regions list.
-zone: us-east1-b                  #Selection from gcloud compute regions list.
+project: carmeai             #Google project name
+email: jkuruzovich@gmail.com       #Google email.
+cluster_name: carmecluster        #Name of your Google Cluster
+region: us-central1                 #Selection from gcloud compute regions list.
+zone: us-central1-b                  #Selection from gcloud compute regions list.
 machine_type: n1-standard-2        #Type of Server
-cluster_version: 1.8.4-gke.1
 authorization_file: auth.json     #Service account authorization file.
 service_account_name: carme  #Service account name.
 fixedip_namespace: jupyterhub-carme
-num_nodes: 1                      #The default number of nodes (servers)
-num_nodes_class: 3                #The number of nodes when class is in session.
+num_nodes: 3                      #The default number of nodes (servers)
+num_nodes_class: 4                #The number of nodes when class is in session.
 max_nodes: 4

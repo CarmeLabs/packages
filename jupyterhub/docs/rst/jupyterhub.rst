@@ -58,7 +58,6 @@ This will install the jupyterhub instance.
 
     !carme cmd jupyterhub install $dryrun $yes
 
-
 Check the Jupyterhub IP
 ~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -1,21 +1,20 @@
-#Start of Google Cloud Platform Commands
+show_config: "cat ./config/gcp-cluster.yaml"
+create_all: ['create','create_cluster_roll']
 create_service_account: "gcloud iam service-accounts create {service_account_name} --display-name {service_account_name}"
 create_key: "gcloud iam service-accounts keys create {cwd}/gcp/{authorization_file} --iam-account {service_account_name}@{project}.iam.gserviceaccount.com"
 get_policy: "gcloud iam service-accounts get-iam-policy {service_account_name}@{project}.iam.gserviceaccount.com --format json > {cwd}gcp/policy.json"
 set_policy: "gcloud iam service-accounts set-iam-policy {service_account_name}@{project}.iam.gserviceaccount.com {cwd}/gcp/policy.json"
 login: "gcloud auth login"
 login_sa: "gcloud auth activate-service-account --key-file {cwd}/gcp/{authorization_file}"
-install_helm: [install_helm1, install_helm2, install_helm3]
-install_helm0: "curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash"
-install_helm1: "kubectl --namespace kube-system create serviceaccount tiller"
-install_helm2: "helm init --service-account tiller"
-install_helm3: "kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller"
-#install_helm4: 'kubectl --namespace=kube-system patch deployment tiller-deploy --type=json --patch=''[{"op": "add", "path": "/spec/template/spec/containers/0/command", "value": ["/tiller", "--listen=localhost:44134"]}]'' '
-#helm: "kubectl --namespace kube-system create sa tiller && kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller && helm init --service-account tiller"
+install_helm: [helm0, helm1, helm2, helm3]
+helm0: "kubectl --namespace kube-system create serviceaccount tiller"
+helm1: "kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller"
+helm2: "helm init --service-account tiller"
+helm3: "script: secure_helm.sh"
 create_project: "gcloud projects create {project} --set-as-default"
 set_project: "gcloud config set project {project}"
 set_zone: "gcloud config set compute/zone {zone}"
-create_cluster: "gcloud container clusters create {cluster_name} --num-nodes={num_nodes} --machine-type={machine_type} --zone={zone}"
+create: "gcloud container clusters create {cluster_name} --num-nodes={num_nodes} --machine-type={machine_type} --zone={zone}"
 create_cluster_roll: "kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user={email}"
 #create_gpu: "gcloud container clusters create {cluster_name} --num-nodes={num_nodes} --machine-type={machine_type} --zone={zone} --cluster-version={cluster_version}"
 get_credentials: "gcloud container clusters get-credentials {cluster_name}"
