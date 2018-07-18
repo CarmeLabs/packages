@@ -3,4 +3,4 @@ cluster_name: carmecluster        #Name your cluster whatever you like.
 namespace: carmehub       #Jupyter namespace
 releasename: carmehub
 version: v0.6
-security: none   #none, google, github, dummy are valid options.
+security: dummy   #google, github, dummy are valid options.
