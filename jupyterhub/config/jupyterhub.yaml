@@ -2,5 +2,5 @@ platform: azure    #either gcp or azure
 cluster_name: carmecluster        #Name your cluster whatever you like.
 namespace: carmehub       #Jupyter namespace
 releasename: carmehub
-version: v0.6
+version: v0.7.0
 security: dummy   #google, github, dummy are valid options.
