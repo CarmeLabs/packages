@@ -1,0 +1,14 @@
+#The Littlest JupyterHub
+#install_ssl: "helm install --name=letsencrypt --namespace=kube-system stable/kube-lego --set config.LEGO_EMAIL={jup_email} --set config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory"
+show_config: "cat ./config/jupyterhub.yaml"
+install: [base_install, https1, https2, https3, memory, cpu, lab, reload]
+base_install: "curl https://raw.githubusercontent.com/jupyterhub/the-littlest-jupyterhub/master/bootstrap/bootstrap.py | sudo python3 - --admin {admin_name}"
+https1: "sudo tljh-config set https.enabled true"
+https2: "sudo tljh-config set https.letsencrypt.email {email}"
+https3: "sudo tljh-config add-item https.letsencrypt.domains {domain}"
+memory: "sudo tljh-config set limits.memory {memory}"
+cpu: "sudo tljh-config set limits.cpu {cpu}"
+lab: "sudo tljh-config set user_environment.default_app jupyterlab"
+reload: "sudo tljh-config reload proxy"
+auth_dummy: "sudo tljh-config set auth.DummyAuthenticator.password {auth_dummy_password}"
+#End of Jupyterhub

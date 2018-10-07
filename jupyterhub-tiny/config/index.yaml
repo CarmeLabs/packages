@@ -1,0 +1,8 @@
+#Please note that currently adding a new package to index bases it off of default
+default: https://github.com/CarmeLabs/packages/raw/master/default/packages/default_20180630_171422.zip
+az-bucket: https://github.com/CarmeLabs/packages/raw/master/az-bucket/packages/az-bucket_20180702_135302.zip
+az-server: https://github.com/CarmeLabs/packages/raw/master/az-server/packages/az-server_20180702_135642.zip
+az-all: ['az-bucket', 'az-server']
+az-cluster: https://github.com/CarmeLabs/packages/raw/master/az-cluster/packages/az-cluster_20180702_135603.zip
+base-cpu: https://github.com/CarmeLabs/packages/raw/master/base-cpu/packages/base-cpu_20180702_135724.zip
+base-gpu: https://github.com/CarmeLabs/packages/raw/master/base-gpu/packages/base-gpu_20180702_135753.zip
