@@ -1,0 +1,7 @@
+admin_name: "admin"           Admin name for jupyterhub
+email:        #You must enter your email.
+domain:       #You must enter your domain.
+auth_dummy_password:     #For dummy authentication
+memory: "None"  #Set memory limit (example '4G')
+cpu: "None"    #Set cpu limit (example '2')
+default_app: "jupyterlab"  #jupyterlab or nteract

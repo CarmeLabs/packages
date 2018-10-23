@@ -12,7 +12,7 @@ init3_mac: "sed -i '' s/secret_token/$(cat ./config/{namespace}/secret_token.txt
 init4: "helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/"
 init5: "helm repo update"
 install: "helm install jupyterhub/jupyterhub --version={version} --name={releasename} --namespace={namespace} -f ./config/{namespace}/config.yaml"
-upgrade: "helm upgrade {namespace} jupyterhub/jupyterhub --version={version} -f ../apps/jupyterhub/config.yaml"
+upgrade: "helm upgrade {namespace} jupyterhub/jupyterhub --version={version} -f ./config/{namespace}/config.yaml"
 describe: "kubectl --namespace={namespace} get pod"
 delete: [delete0, delete1]
 delete0: "helm delete {releasename} --purge"
