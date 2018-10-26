@@ -4,10 +4,10 @@ email:        #Google email.
 cluster_name: carmecluster        #Name of your Google Cluster
 region: us-central1                 #Selection from gcloud compute regions list.
 zone: us-central1-b                  #Selection from gcloud compute regions list.
-machine_type:  n1-highmem-4      #Type of Server (n1-standard-2 for cheap)
+machine_type:  n1-standard-2      #Type of Server (n1-standard-2 for cheap/n1-highmem-4 otherwise)
 authorization_file: auth.json     #Service account authorization file.
 service_account_name: carme  #Service account name.
 fixedip_namespace: jupyterhub-carme
-num_nodes: 3                      #The default number of nodes (servers)
+num_nodes: 2                      #The default number of nodes (servers)
 num_nodes_class: 4                #The number of nodes when class is in session.
 max_nodes: 4

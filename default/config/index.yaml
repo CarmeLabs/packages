@@ -10,5 +10,5 @@ base-gpu: https://github.com/CarmeLabs/packages/raw/master/base-gpu/packages/bas
 jupyter-cpu: https://github.com/CarmeLabs/packages/raw/master/jupyter-cpu/packages/jupyter-cpu_20180702_140251.zip
 ubuntu: https://github.com/CarmeLabs/packages/raw/master/ubuntu/packages/ubuntu_20180702_140924.zip
 jupyterhub: https://github.com/CarmeLabs/packages/raw/master/jupyterhub/packages/jupyterhub_20181023_173115.zip
-gcp-cluster: https://github.com/CarmeLabs/packages/raw/master/gcp-cluster/packages/gcp-cluster_20180828_214720.zip
+gcp-cluster: https://github.com/CarmeLabs/packages/raw/master/gcp-cluster/packages/gcp-cluster_20181026_142651.zip
 gcp-z2jh: ['gcp-cluster', 'jupyterhub', 'jupyter-cpu']
