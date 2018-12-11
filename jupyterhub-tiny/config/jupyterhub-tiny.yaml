@@ -5,3 +5,4 @@ auth_dummy_password:     #For dummy authentication
 memory: "None"  #Set memory limit (example '4G')
 cpu: "None"    #Set cpu limit (example '2')
 default_app: "jupyterlab"  #jupyterlab or nteract
+instance_name:          #You must enter the name of your vm instance
