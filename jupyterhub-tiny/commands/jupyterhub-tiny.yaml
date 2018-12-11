@@ -12,3 +12,11 @@ lab: "sudo tljh-config set user_environment.default_app jupyterlab"
 reload: "sudo tljh-config reload proxy"
 auth_dummy: "sudo tljh-config set auth.DummyAuthenticator.password {auth_dummy_password}"
 #End of Jupyterhub
+
+#Littlest Jupyterhub installation
+init: [init0, init1, init2, init3, init4]
+init0: "curl https://raw.githubusercontent.com/jbeck18/packages/master/jupyterhub-tiny/commands/scripts/startup.sh >> startup.sh"
+init1: "sed -i -e 's/<admin-user-name>/{admin_name}/g' startup.sh"
+init2: “gcloud compute instances stop {instance_name}”
+init3: “gcloud compute instances add-metadata {instance_name} --metadata-from-file startup-script=startup.sh”
+init4: "gcloud compute instances start {instance_name}"

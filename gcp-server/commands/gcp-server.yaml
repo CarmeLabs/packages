@@ -20,3 +20,12 @@ create_firewall_rules: "gcloud beta compute firewall-rules create {server_name}
     [--source-tags [TAG][,TAG,...]] \
     [--rules ([PROTOCOL][:PORT[-PORT]],[PROTOCOL[:PORT[-PORT]],...]] | all ) \
     [--disabled | --no-disabled] (requires gcloud beta)"
+
+##Create Littlest JupyterHub VM instance
+init: [init0, init1, init2, init3, init4]
+
+init0: "gcloud compute instances create {instance_name} --image-family {image_family} --image-project {image-project}"
+init1: "gcloud compute instances add-tags {instance_name} --tags http-server,https-server"
+init2: "gcloud compute instances stop {instance_name}"
+init3: "gcloud compute instances set-service-account {instance_name} --no-scopes --no-service-account"
+init4: "gcloud compute instances start {instance_name}"
