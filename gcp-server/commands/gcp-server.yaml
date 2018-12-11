@@ -22,10 +22,10 @@ create_firewall_rules: "gcloud beta compute firewall-rules create {server_name}
     [--disabled | --no-disabled] (requires gcloud beta)"
 
 ##Create Littlest JupyterHub VM instance
-init: [init0, init1, init2, init3, init4]
+tljh_init: [tljh_init0, tljh_init1, tljh_init2, tljh_init3, tljh_init4]
 
-init0: "gcloud compute instances create {instance_name} --image-family {image_family} --image-project {image-project}"
-init1: "gcloud compute instances add-tags {instance_name} --tags http-server,https-server"
-init2: "gcloud compute instances stop {instance_name}"
-init3: "gcloud compute instances set-service-account {instance_name} --no-scopes --no-service-account"
-init4: "gcloud compute instances start {instance_name}"
+tljh_init0: "gcloud compute instances create {instance_name} --image-family {image_family} --image-project {image-project}"
+tljh_init1: "gcloud compute instances add-tags {instance_name} --tags http-server,https-server"
+tljh_init2: "gcloud compute instances stop {instance_name}"
+tljh_init3: "gcloud compute instances set-service-account {instance_name} --no-scopes --no-service-account"
+tljh_init4: "gcloud compute instances start {instance_name}"
